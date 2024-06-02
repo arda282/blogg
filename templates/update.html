@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<h1>Update Article</h1>
+<hr>
+<form method="POST">
+    {{ form.csrf_token }}
+    <div>
+        {{ form.title.label }}
+        {{ form.title(class="form-control") }}
+    </div>
+    <div>
+        {{ form.content.label }}
+        {{ form.content(class="form-control") }}
+    </div>
+    <button type="submit" class="btn btn-primary">Send</button>
+</form>
+
+{% endblock %}

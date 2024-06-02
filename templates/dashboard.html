@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Account {{ session['username'] }}
+{% endblock %}
+
+{% block body %}
+
+<h1>Dashboard</h1>
+<small>welcome {{ session['username'] }} !</small>
+<hr>
+
+<a href="/addarticle" class="btn btn-danger">Add article</a>
+
+{%if articles %}
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Title</th>
+        <th scope="col">Author</th>
+        <th scope="col">Date</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+
+      {% for article in articles %}
+      <tr>
+        <th scope="row">{{article[0]}}</th>
+        <td>{{article[1]}}</td>
+        <td>{{article[2]}}</td>
+        <td>{{article[4]}}</td>
+        <td><a href="/article/{{article[0]}}" class="btn btn-warning">view</a></td>
+        <td><a href="/edit/{{article[0]}}" class="btn btn-primary">Update</a></td>
+        <td><a href="/delete/{{article[0]}}" class="btn btn-danger">Delete</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+{% else %}
+
+<p>you don't have any articles</p>
+
+{% endif %}
+
+{% endblock %}

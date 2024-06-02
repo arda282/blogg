@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+{% if article %}
+
+
+    <h1>{{article[1]}}</h1>
+
+    <h4>Author : {{article[2]}}</h4>
+
+    <h5>Date : {{article[4]}}</h5>
+
+    <hr>
+
+    <p>{{article[3]}}</p>
+
+    
+
+{% else %}
+
+<p>There are no articles to show</p>
+
+{% endif %}
+
+
+
+{% endblock %}
